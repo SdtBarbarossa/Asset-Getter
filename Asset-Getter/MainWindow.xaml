@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Asset_Getter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="172.31" Width="800">
     <Grid>
-        
+        <Button x:Name="btGetListOfAssets" Content="get list of assets" HorizontalAlignment="Left" Margin="675,59,0,0" VerticalAlignment="Top" Width="106" Click="btGetListOfAssets_Clicked" Height="24"/>
+        <TextBox x:Name="txtUrlToAssets" HorizontalAlignment="Left" Height="23" Margin="80,59,0,0" TextWrapping="Wrap" Text="https://eaassets-a.akamaihd.net/assetssw.capitalgames.com/PROD/1806/Android/ETC/" VerticalAlignment="Top" Width="590"/>
+        <Label x:Name="label" Content="Asset URL:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="legalWarning" Content="This Program will download Asset files from the URL given below. Make sure you are allowed to acess and download these files." HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Height="26" Width="771"/>
+        <CheckBox x:Name="cbAccept" Content="I am allowed to acess and download all files under the given URL and all files i will choose to download in later steps during these program" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPath" HorizontalAlignment="Left" Height="23" Margin="80,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="590" IsReadOnly="True"/>
+        <Label x:Name="lbPath" Content="Exportpath:" HorizontalAlignment="Left" Margin="11,101,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btSetPath" Content="set path" HorizontalAlignment="Left" Margin="675,104,0,0" VerticalAlignment="Top" Width="89" Height="23" Click="BtSetPath_Click"/>
+
     </Grid>
 </Window>
