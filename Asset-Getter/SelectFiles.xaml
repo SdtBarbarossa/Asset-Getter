@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Asset_Getter"
         mc:Ignorable="d"
-        Title="SelectFiles" Height="168.038" Width="512.342">
+        Title="SelectFiles" Height="110.315" Width="512.342">
     <Grid>
         <ComboBox x:Name="cbSingleFile" HorizontalAlignment="Left" Margin="81,14,0,0" VerticalAlignment="Top" Width="328"/>
         <Label x:Name="lbSingleFile" Content="Single file:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btSingleFile" Content="Download" HorizontalAlignment="Left" Margin="414,16,0,0" VerticalAlignment="Top" Width="75" Click="BtSingleFile_Click"/>
-        <Label x:Name="lbMulti" Content="Multiple files with prefix:" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbMulti" HorizontalAlignment="Left" Margin="154,98,0,0" VerticalAlignment="Top" Width="255"/>
-        <Button x:Name="btMulti" Content="Download" HorizontalAlignment="Left" Margin="414,98,0,0" VerticalAlignment="Top" Width="75" Click="BtMulti_Click"/>
+        <Label x:Name="lbMulti" Content="Multiple files with prefix:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbMulti" HorizontalAlignment="Left" Margin="154,45,0,0" VerticalAlignment="Top" Width="255"/>
+        <Button x:Name="btMulti" Content="Download" HorizontalAlignment="Left" Margin="414,47,0,0" VerticalAlignment="Top" Width="75" Click="BtMulti_Click"/>
 
     </Grid>
 </Window>

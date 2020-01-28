@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +30,9 @@ namespace Asset_Getter
         public ManifestHelper manifestHelper { get; set; }
         public string path { get; set; }
         public string assetUrl { get; set; }
+
+        private List<string> allFilesToDownload { get; set; }
+        private Thread thread { get; set; }
 
         public static bool AssetSelector(uTinyRipper.Classes.Object asset)
         {
@@ -69,21 +74,49 @@ namespace Asset_Getter
 
             try
             {
+                if(thread != null && thread.IsAlive)
+                {
+                    MessageBox.Show($"Wait for old Thread to finish first");
+                    return;
+                }
+                
                 var currentprefix = cbMulti.SelectedValue.ToString();
 
-                var allFilesToDownload = this.manifestHelper.resources.Where(r => r.StartsWith(currentprefix)).ToList();
+                AllocConsole();
+                Console.WriteLine($"Starting to download all files with prefix '{currentprefix}'");
 
-                foreach(string filename in allFilesToDownload)
-                {
-                    this.DownloadSingleFile(filename);
-                }
+                allFilesToDownload = this.manifestHelper.resources.Where(r => r.StartsWith(currentprefix)).ToList();
 
-                MessageBox.Show($"Completed. Look under {this.path}");
+                thread = new Thread(new ThreadStart(DownloadMass));
+                thread.Start();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error while Downloading the files. Message: {ex.Message}");
             }
+        }
+
+        [DllImport("Kernel32")]
+        public static extern void AllocConsole();
+
+        [DllImport("Kernel32")]
+        public static extern void FreeConsole();
+
+        public void DownloadMass()
+        {
+            var allCount = allFilesToDownload.Count;
+            Console.WriteLine($"Identified {allCount} files to download");
+
+            for (var i = 0; i < allCount; i++)
+            {
+                Console.WriteLine($"Downloading file {i+1}/{allCount}");
+                this.DownloadSingleFile(allFilesToDownload[i]);
+            }
+
+            FreeConsole();
+
+            MessageBox.Show($"Completed. Look under {this.path}");
         }
 
         private void DownloadSingleFile(string filename)
