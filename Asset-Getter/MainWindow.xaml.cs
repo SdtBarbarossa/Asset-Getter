@@ -37,13 +37,7 @@ namespace Asset_Getter
 
         private void btGetListOfAssets_Clicked(object sender, RoutedEventArgs e)
         {
-            //https://eaassets-a.akamaihd.net/assetssw.capitalgames.com/PROD/1806/Android/ETC/
-
-            if(!cbAccept.IsChecked.HasValue || !cbAccept.IsChecked.Value)
-            {
-                MessageBox.Show("You need to make sure you are allowed to acess and download the files under the url", "Not allowed" , MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return;
-            }
+            //https://eaassets-a.akamaihd.net/assetssw.capitalgames.com/PROD/18312/Android/ETC/
 
             Directory.CreateDirectory($"{path}/Manifest");
 

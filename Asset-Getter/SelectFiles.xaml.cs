@@ -113,9 +113,7 @@ namespace Asset_Getter
                 Console.WriteLine($"Downloading file {i+1}/{allCount}");
                 this.DownloadSingleFile(allFilesToDownload[i]);
             }
-
-            FreeConsole();
-
+            
             MessageBox.Show($"Completed. Look under {this.path}");
         }
 
@@ -139,6 +137,31 @@ namespace Asset_Getter
             gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Sprite, textureExporter);
 
             gameStructure.Export($"{path}/exported/{filename}/", Texture2DAssetSelector);
+        }
+
+        private void btAll_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (thread != null && thread.IsAlive)
+                {
+                    MessageBox.Show($"Wait for old Thread to finish first");
+                    return;
+                }
+
+                AllocConsole();
+                Console.WriteLine($"Starting to download all files... this will take a while...");
+
+                allFilesToDownload = this.manifestHelper.resources.ToList();
+
+                thread = new Thread(new ThreadStart(DownloadMass));
+                thread.Start();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error while Downloading the files. Message: {ex.Message}");
+            }
         }
     }
 }
