@@ -119,24 +119,30 @@ namespace Asset_Getter
 
         private void DownloadSingleFile(string filename)
         {
-            Directory.CreateDirectory($"{path}/tmp/{filename}");
-
-            using (var client = new WebClient())
+            try
             {
-                client.DownloadFile($"{assetUrl}{filename}.bundle", $"{path}/tmp/{filename}/{filename}.bundle");
+                Directory.CreateDirectory($"{path}/tmp/{filename}");
+
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile($"{assetUrl}{filename}.bundle", $"{path}/tmp/{filename}/{filename}.bundle");
+                }
+                List<string> pathes = new List<string>();
+                pathes.Add($"{path}/tmp/{filename}/{filename}.bundle");
+                var gameStructure = GameStructure.Load(pathes);
+                //EngineAssetExporter engineExporter = new EngineAssetExporter();
+                //gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Texture2D, engineExporter);
+
+                TextureAssetExporter textureExporter = new TextureAssetExporter(this.path);
+                gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Texture2D, textureExporter);
+                //gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Texture2DArray, textureExporter);
+
+                gameStructure.Export($"{path}/exported/{filename}/", Texture2DAssetSelector);
             }
-            List<string> pathes = new List<string>();
-            pathes.Add($"{path}/tmp/{filename}/{filename}.bundle");
-            var gameStructure = GameStructure.Load(pathes);
-            EngineAssetExporter engineExporter = new EngineAssetExporter();
-            gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Texture2D, engineExporter);
-
-            TextureAssetExporter textureExporter = new TextureAssetExporter();
-            gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Texture2D, textureExporter);
-            gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Cubemap, textureExporter);
-            gameStructure.FileCollection.Exporter.OverrideExporter(ClassIDType.Sprite, textureExporter);
-
-            gameStructure.Export($"{path}/exported/{filename}/", Texture2DAssetSelector);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error downloading file '{filename}'! you may ignore this.");
+            }
         }
 
         private void btAll_Click(object sender, RoutedEventArgs e)
@@ -162,6 +168,43 @@ namespace Asset_Getter
             {
                 MessageBox.Show($"Error while Downloading the files. Message: {ex.Message}");
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (thread != null && thread.IsAlive)
+            {
+                MessageBox.Show($"Wait for old Thread to finish first");
+                return;
+            }
+
+            AllocConsole();
+            Console.WriteLine($"Starting to download and diff...");
+
+            using (var client = new WebClient())
+            {
+                client.DownloadFile($"{txtUrlToCompareAssets.Text}manifest.data", $"{path}/Manifest/diff_manifest.data");
+            }
+
+            ManifestHelper manifestHelperDiff = new ManifestHelper();
+            manifestHelperDiff.ReadFromFile($"{path}/Manifest/diff_manifest.data");
+
+            var diff = manifestHelper.resources.Where(res => !manifestHelperDiff.resources.Contains(res)).ToList();
+
+            Console.WriteLine($"New Entrys: {diff.Count}");
+
+
+            foreach (var difference in diff)
+            {
+                Console.WriteLine(difference);
+            }
+
+            Console.WriteLine("Diff Completed. Now downloading...");
+
+            allFilesToDownload = diff;
+
+            thread = new Thread(new ThreadStart(DownloadMass));
+            thread.Start();
         }
     }
 }

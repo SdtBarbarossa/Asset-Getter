@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Asset_Getter"
         mc:Ignorable="d"
-        Title="SelectFiles" Height="152.762" Width="512.342">
+        Title="SelectFiles" Height="189.555" Width="655.009">
     <Grid>
         <ComboBox x:Name="cbSingleFile" HorizontalAlignment="Left" Margin="81,14,0,0" VerticalAlignment="Top" Width="328"/>
         <Label x:Name="lbSingleFile" Content="Single file:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -15,6 +15,9 @@
         <Button x:Name="btMulti" Content="Download" HorizontalAlignment="Left" Margin="414,47,0,0" VerticalAlignment="Top" Width="75" Click="BtMulti_Click"/>
         <Label Content="Download all(this will take a while):" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btAll" Content="Download all" HorizontalAlignment="Left" Margin="210,75,0,0" VerticalAlignment="Top" Width="76" Click="btAll_Click"/>
+        <TextBox x:Name="txtUrlToCompareAssets" HorizontalAlignment="Left" Height="23" Margin="61,100,0,0" TextWrapping="Wrap" Text="https://eaassets-a.akamaihd.net/assetssw.capitalgames.com/PROD/2044/Android/ETC/" VerticalAlignment="Top" Width="469"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,103,0,0" TextWrapping="Wrap" Text="AssetUrl:" VerticalAlignment="Top"/>
+        <Button Content="Diff and Download" HorizontalAlignment="Left" Margin="535,101,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
 
     </Grid>
 </Window>

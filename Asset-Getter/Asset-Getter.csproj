@@ -88,23 +88,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\FileView.xaml.cs">
-      <DependentUpon>FileView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\OutputView.xaml.cs">
-      <DependentUpon>OutputView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SelectFiles.xaml.cs">
       <DependentUpon>SelectFiles.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\FileView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\OutputView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -163,14 +149,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UTinyRipper\uTinyRipperCore\uTinyRipperCore.csproj">
-      <Project>{d02dfa52-11ef-4601-82cb-db1020d513f5}</Project>
+    <ProjectReference Include="..\uTinyRipperCore\uTinyRipperCore.csproj">
+      <Project>{f502d7b0-bc34-4d9f-b59d-020d8cb0098b}</Project>
       <Name>uTinyRipperCore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\UTinyRipper\uTinyRipperGUI\uTinyRipperGUI.csproj">
+    <ProjectReference Include="..\uTinyRipperGUI\uTinyRipperGUI.csproj">
       <Project>{adee41c3-2951-4cd7-99b8-6f542d4db28d}</Project>
       <Name>uTinyRipperGUI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

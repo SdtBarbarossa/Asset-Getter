@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asset-Getter", "Asset-Getter\Asset-Getter.csproj", "{D16D463D-AB0B-4B8F-92A7-4B01691FA177}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uTinyRipperGUI", "..\UTinyRipper\uTinyRipperGUI\uTinyRipperGUI.csproj", "{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uTinyRipperCore", "uTinyRipperCore\uTinyRipperCore.csproj", "{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uTinyRipperCore", "..\UTinyRipper\uTinyRipperCore\uTinyRipperCore.csproj", "{D02DFA52-11EF-4601-82CB-DB1020D513F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uTinyRipperGUI", "uTinyRipperGUI\uTinyRipperGUI.csproj", "{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +40,24 @@ Global
 		{D16D463D-AB0B-4B8F-92A7-4B01691FA177}.Virtual|x64.Build.0 = Release|Any CPU
 		{D16D463D-AB0B-4B8F-92A7-4B01691FA177}.Virtual|x86.ActiveCfg = Release|Any CPU
 		{D16D463D-AB0B-4B8F-92A7-4B01691FA177}.Virtual|x86.Build.0 = Release|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Debug|x64.Build.0 = Debug|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Debug|x86.Build.0 = Debug|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Release|x64.ActiveCfg = Release|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Release|x64.Build.0 = Release|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Release|x86.ActiveCfg = Release|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Release|x86.Build.0 = Release|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Virtual|Any CPU.ActiveCfg = Virtual|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Virtual|Any CPU.Build.0 = Virtual|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Virtual|x64.ActiveCfg = Virtual|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Virtual|x64.Build.0 = Virtual|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Virtual|x86.ActiveCfg = Virtual|Any CPU
+		{F502D7B0-BC34-4D9F-B59D-020D8CB0098B}.Virtual|x86.Build.0 = Virtual|Any CPU
 		{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}.Debug|x64.ActiveCfg = Debug|x64
 		{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}.Debug|x64.Build.0 = Debug|x64
@@ -55,24 +73,6 @@ Global
 		{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}.Virtual|x64.Build.0 = Virtual|x64
 		{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}.Virtual|x86.ActiveCfg = Virtual|x86
 		{ADEE41C3-2951-4CD7-99B8-6F542D4DB28D}.Virtual|x86.Build.0 = Virtual|x86
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Debug|x64.Build.0 = Debug|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Debug|x86.Build.0 = Debug|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Release|x64.ActiveCfg = Release|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Release|x64.Build.0 = Release|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Release|x86.ActiveCfg = Release|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Release|x86.Build.0 = Release|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Virtual|Any CPU.ActiveCfg = Virtual|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Virtual|Any CPU.Build.0 = Virtual|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Virtual|x64.ActiveCfg = Virtual|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Virtual|x64.Build.0 = Virtual|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Virtual|x86.ActiveCfg = Virtual|Any CPU
-		{D02DFA52-11EF-4601-82CB-DB1020D513F5}.Virtual|x86.Build.0 = Virtual|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
